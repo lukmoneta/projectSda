@@ -11,14 +11,11 @@ import java.math.BigDecimal;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
     private Long id;
-@JsonProperty("name")
     private String name;
     private String description;
     private String pictureUrl;
@@ -26,9 +23,7 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private UserOrder userOrder;
+
 
 
 

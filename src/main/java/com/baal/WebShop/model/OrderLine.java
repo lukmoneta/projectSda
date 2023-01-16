@@ -1,30 +1,28 @@
 package com.baal.WebShop.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.math.BigDecimal;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
-public class User {
+public class OrderLine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-private String email;
-private String phoneNumber;
-    @OneToMany(mappedBy = "user")
-    private List<UserOrder> userOrderList;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Address address;
-
+    private int numberOfProducts;
+    private BigDecimal valueOfProduct;
+    @OneToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private UserOrder userOrder;
 
 }
