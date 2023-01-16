@@ -18,13 +18,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-private String email;
-private String phoneNumber;
+    private String email;
+    private String phoneNumber;
     @OneToMany(mappedBy = "user")
     private List<UserOrder> userOrderList;
-
     @OneToOne(cascade = CascadeType.ALL)
     private Address address;
-
-
 }
