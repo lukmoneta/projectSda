@@ -1,8 +1,7 @@
 package com.baal.WebShop.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.DecimalMin;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -19,6 +18,7 @@ public class Product {
     private String name;
     private String description;
     private String pictureUrl;
+    @DecimalMin("0.0")
     private BigDecimal price;
     @ManyToOne
     @JoinColumn(name = "category_id")
