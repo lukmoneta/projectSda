@@ -21,5 +21,4 @@ public class Address {
     private String postCode;
     @OneToOne(mappedBy = "address")
     private User user;
-
 }
