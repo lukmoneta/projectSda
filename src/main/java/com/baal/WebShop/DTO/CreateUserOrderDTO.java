@@ -7,5 +7,5 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 
-public record CreateUserOrderDTO(BigDecimal totalCost, Instant dateOfOrder, User userId, List<OrderLine> orderLineList) {
+public record CreateUserOrderDTO(BigDecimal totalCost, User userId, List<OrderLine> orderLineList) {
 }
