@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.Optional;
+
 @Validated
 @Service
 @RequiredArgsConstructor
@@ -24,5 +26,12 @@ public class CategoryServiceImpl implements CategoryService {
         category.setName(createCategoryDTO.name());
         Category savedCategory = categoryRepository.save(category);
         return categoryModelMapper.mapCategoryEntityToCategoryDTO(savedCategory);
+    }
+
+    @Override
+    public CategoryDTO findById(Long id) {
+        Optional<Category> category = categoryRepository.findById(id);
+        return category.map(categoryModelMapper::mapCategoryEntityToCategoryDTO)
+                .orElseThrow(()-> new RuntimeException(String.format("Category with id: %d not found",id)));
     }
 }
