@@ -10,11 +10,8 @@ import lombok.*;
 @Builder
 @Entity
 public class Address {
-    @Getter(AccessLevel.NONE)
-    @Setter(AccessLevel.NONE)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Long id;
     private String country;
     private String city;
