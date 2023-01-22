@@ -3,7 +3,9 @@ package com.baal.WebShop.service;
 import com.baal.WebShop.DTO.CreateProductDTO;
 import com.baal.WebShop.DTO.ProductDTO;
 import com.baal.WebShop.mapper.ProductModelMapper;
+import com.baal.WebShop.model.Category;
 import com.baal.WebShop.model.Product;
+import com.baal.WebShop.repository.CategoryRepository;
 import com.baal.WebShop.repository.ProductRepository;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductServiceImp implements ProductService {
     private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
     private final ProductModelMapper productModelMapper;
 
     @Override
@@ -39,7 +42,25 @@ public class ProductServiceImp implements ProductService {
     @Override
     public ProductDTO getProductById(Long id) {
         return productRepository.findById(id).map(productModelMapper::mapProductEntityToProductDTO)
-                .orElseThrow(()-> new RuntimeException(String.format("product with %d doesnt exist", id)));
+                .orElseThrow(() -> new RuntimeException(String.format("product with %d doesnt exist", id)));
+    }
+
+    @Override
+    public ProductDTO updateProduct(Long productId, ProductDTO productDTO) {
+
+        Product product = productRepository.findById(productId)
+                .orElseThrow(() -> new RuntimeException(String.format("product with %d doesnt exist", productId)));
+        Category category = categoryRepository.findById(productDTO.categoryId())
+                .orElseThrow(() -> new RuntimeException(String.format("product with %d doesnt exist", productDTO.categoryId())));
+
+        product.setCategory(category);
+        product.setDescription(productDTO.description());
+        product.setName(productDTO.name());
+        product.setPictureUrl(productDTO.pictureUrl());
+        product.setPrice(productDTO.price());
+
+        Product savedEditedProduct = productRepository.save(product);
+        return productModelMapper.mapProductEntityToProductDTO(savedEditedProduct);
     }
 
     public List<ProductDTO> getProducts() {
