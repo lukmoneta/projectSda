@@ -37,8 +37,23 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public void deleteById(Long id) {
+        categoryRepository.deleteById(id);
+    }
+
+    @Override
     public List<CategoryDTO> getCategories() {
         List<Category> list = categoryRepository.findAll();
         return list.stream().map(categoryModelMapper::mapCategoryEntityToCategoryDTO).toList();
+    }
+
+    @Override
+    public CategoryDTO updateCategory(Long categoryId, CategoryDTO categoryDTO) {
+        Category category = categoryRepository.findById(categoryId)
+                .orElseThrow(() -> new RuntimeException(String.format("category with &d doesnt exist", categoryId)));
+        category.setName(categoryDTO.name());
+
+        Category savedEditedCategory = categoryRepository.save(category);
+        return categoryModelMapper.mapCategoryEntityToCategoryDTO(savedEditedCategory);
     }
 }

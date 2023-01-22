@@ -14,6 +14,9 @@ public interface CategoryService {
 
 CategoryDTO createCategory(@Valid CreateCategoryDTO createCategoryDTO);
 CategoryDTO findById(@NotNull @Min(1) Long id);
+void deleteById(Long id);
 
 List<CategoryDTO> getCategories();
+
+CategoryDTO updateCategory(Long categoryId, CategoryDTO categoryDTO);
 }
