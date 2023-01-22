@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.List;
 import java.util.Optional;
 
 @Validated
@@ -33,5 +34,11 @@ public class CategoryServiceImpl implements CategoryService {
         Optional<Category> category = categoryRepository.findById(id);
         return category.map(categoryModelMapper::mapCategoryEntityToCategoryDTO)
                 .orElseThrow(()-> new RuntimeException(String.format("Category with id: %d not found",id)));
+    }
+
+    @Override
+    public List<CategoryDTO> getCategories() {
+        List<Category> list = categoryRepository.findAll();
+        return list.stream().map(categoryModelMapper::mapCategoryEntityToCategoryDTO).toList();
     }
 }
