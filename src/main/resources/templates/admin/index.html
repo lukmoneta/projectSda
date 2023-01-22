@@ -181,25 +181,34 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>PictureURL</th>
+                                            <th>Price</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
+
+                                            <th>#</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>PictureURL</th>
+                                            <th>Price</th>
+
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                    <tr th:each="product:${products}">
+                                        <td th:text="${product.id()}"></td>
+                                        <td th:text="${product.name()}"></td>
+                                        <td th:text="${product.pictureUrl()}"></td>
+                                        <td th:text="${product.price()}"></td>
+
+                                            <td class="col-1"><a href="@{/delete(id=${invoice.id})}" class="btn btn-danger">DELETE</a></td>
+                                            <td><a href="@{/update(id=${invoice.id})}"class="btn btn-primary">EDIT</a></td>
+
+                                        </tr>
+                         
                                         <tr>
                                             <td>Tiger Nixon</td>
                                             <td>System Architect</td>
@@ -207,6 +216,7 @@
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>$320,800</td>
+
                                         </tr>
                                         <tr>
                                             <td>Garrett Winters</td>
