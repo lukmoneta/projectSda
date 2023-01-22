@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import java.util.List;
+
 @Validated
 @Service
 @RequiredArgsConstructor
@@ -25,5 +27,11 @@ public class UserServiceImp implements UserService {
                 .address(createUserDTO.address())
                 .build();
         return null;
+    }
+
+    @Override
+    public List<UserDTO> getUsers() {
+        List<User> list = userRepository.findAll();
+        return list.stream().map(userModerMapper::mapUserEntityToUserDTO).toList();
     }
 }
