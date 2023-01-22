@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import java.time.Instant;
+import java.util.List;
 
 @Validated
 @Service
@@ -28,5 +29,11 @@ public class UserOrderServiceImp implements UserOrderService{
                 .build();
         UserOrder savedUserOrder = userOrderRepository.save(userOrder);
         return userOrderModelMapper.mapUserOrderEntityToUserOrderDTO(savedUserOrder);
+    }
+
+    @Override
+    public List<UserOrderDTO> getUserOrders() {
+        List<UserOrder> list = userOrderRepository.findAll();
+        return list.stream().map(userOrderModelMapper::mapUserOrderEntityToUserOrderDTO).toList();
     }
 }
