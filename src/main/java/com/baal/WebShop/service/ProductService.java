@@ -10,6 +10,7 @@ import java.util.List;
 @Validated
 public interface ProductService {
     ProductDTO createProduct(@Valid CreateProductDTO createProductDTO);
+    void deleteById(Long id);
 
     List<ProductDTO> getProducts();
 }

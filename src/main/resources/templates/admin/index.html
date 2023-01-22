@@ -204,7 +204,7 @@
                                         <td th:text="${product.pictureUrl()}"></td>
                                         <td th:text="${product.price()}"></td>
 
-                                        <td class="col-1"><a href="@{/delete(id=${product.id})}" class="btn btn-danger">DELETE</a></td>
+                                        <td class="col-1"><a th:href="@{products/delete(id=${product.id})}" class="btn btn-danger">DELETE</a></td>
                                         <td><a href="@{/update(id=${product.id})}"class="btn btn-primary">EDIT</a></td>
                                     </tr>
                                     </tbody>

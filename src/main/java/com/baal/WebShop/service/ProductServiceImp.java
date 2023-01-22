@@ -31,6 +31,11 @@ public class ProductServiceImp implements ProductService {
         return productModelMapper.mapProductEntityToProductDTO(savedProduct);
     }
 
+    @Override
+    public void deleteById(Long id) {
+        productRepository.deleteById(id);
+    }
+
     public List<ProductDTO> getProducts() {
         List<Product> list = productRepository.findAll();
         return list.stream().map(productModelMapper::mapProductEntityToProductDTO).toList();
