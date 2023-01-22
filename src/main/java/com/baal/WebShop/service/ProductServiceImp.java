@@ -6,10 +6,11 @@ import com.baal.WebShop.mapper.ProductModelMapper;
 import com.baal.WebShop.model.Product;
 import com.baal.WebShop.repository.ProductRepository;
 import jakarta.validation.Valid;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
+
+import java.util.List;
 
 @Validated
 @Service
@@ -17,6 +18,7 @@ import org.springframework.validation.annotation.Validated;
 public class ProductServiceImp implements ProductService {
     private final ProductRepository productRepository;
     private final ProductModelMapper productModelMapper;
+
     @Override
     public ProductDTO createProduct(@Valid CreateProductDTO createProductDTO) {
         Product product = Product.builder()
@@ -27,5 +29,10 @@ public class ProductServiceImp implements ProductService {
                 .build();
         Product savedProduct = productRepository.save(product);
         return productModelMapper.mapProductEntityToProductDTO(savedProduct);
+    }
+
+    public List<ProductDTO> getProducts() {
+        List<Product> list = productRepository.findAll();
+        return list.stream().map(productModelMapper::mapProductEntityToProductDTO).toList();
     }
 }
