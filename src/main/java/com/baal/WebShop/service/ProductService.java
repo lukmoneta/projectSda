@@ -11,6 +11,7 @@ import java.util.List;
 public interface ProductService {
     ProductDTO createProduct(@Valid CreateProductDTO createProductDTO);
     void deleteById(Long id);
+    ProductDTO getProductById(Long id);
 
     List<ProductDTO> getProducts();
 }

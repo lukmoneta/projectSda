@@ -36,6 +36,12 @@ public class ProductServiceImp implements ProductService {
         productRepository.deleteById(id);
     }
 
+    @Override
+    public ProductDTO getProductById(Long id) {
+        return productRepository.findById(id).map(productModelMapper::mapProductEntityToProductDTO)
+                .orElseThrow(()-> new RuntimeException(String.format("product with %d doesnt exist", id)));
+    }
+
     public List<ProductDTO> getProducts() {
         List<Product> list = productRepository.findAll();
         return list.stream().map(productModelMapper::mapProductEntityToProductDTO).toList();
