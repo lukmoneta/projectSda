@@ -8,4 +8,8 @@ import org.springframework.validation.annotation.Validated;
 @Validated
 public interface AddressService {
     AddressDTO createAddress(@Valid CreateAddressDTO createAddressDTO);
+
+    AddressDTO updateAddress(Long addressId, AddressDTO addressDTO);
+
+    AddressDTO findById (Long id);
 }

@@ -16,7 +16,7 @@ import java.util.Optional;
 @Validated
 @Service
 @RequiredArgsConstructor
-public class CategoryServiceImpl implements CategoryService {
+public class CategoryServiceImp implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryModelMapper categoryModelMapper;
 
