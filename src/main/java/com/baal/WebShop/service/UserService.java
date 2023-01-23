@@ -11,5 +11,11 @@ import java.util.List;
 public interface UserService {
     UserDTO createUser(@Valid CreateUserDTO createUserDTO);
 
+    UserDTO getUserById(Long id);
+
+    void deleteById(Long id);
+
+    UserDTO updateUser(Long userId, UserDTO userDTO);
+
     List<UserDTO> getUsers();
 }

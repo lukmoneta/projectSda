@@ -28,4 +28,22 @@ public class AddressServiceImp implements AddressService {
         Address savedAddress = addressRepository.save(address);
         return addressModelMapper.mapAddressEntityToAddressDTO(savedAddress);
     }
+
+    @Override
+    public AddressDTO updateAddress(Long addressId, AddressDTO addressDTO) {
+        Address address = addressRepository.findById(addressId)
+                .orElseThrow(()-> new RuntimeException(String.format("address with %d doesn't exist", addressId)));
+        address.setCountry(addressDTO.country());
+        address.setCity(addressDTO.city());
+        address.setStreet(addressDTO.street());
+        address.setPostCode(addressDTO.postCode());
+        Address savedEditedAddress = addressRepository.save(address);
+        return addressModelMapper.mapAddressEntityToAddressDTO(savedEditedAddress);
+    }
+
+    @Override
+    public AddressDTO findById(Long id) {
+                return addressRepository.findById(id).map(addressModelMapper::mapAddressEntityToAddressDTO)
+                        .orElseThrow(()-> new RuntimeException(String.format("address with%d doesnt exist", id)));
+    }
 }
