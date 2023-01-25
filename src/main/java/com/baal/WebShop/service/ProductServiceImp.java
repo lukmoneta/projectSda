@@ -23,12 +23,14 @@ public class ProductServiceImp implements ProductService {
     private final ProductModelMapper productModelMapper;
 
     @Override
-    public ProductDTO createProduct(@Valid CreateProductDTO createProductDTO) {
+    public ProductDTO createProduct(CreateProductDTO createProductDTO) {
+        Category category = categoryRepository.findById(createProductDTO.categoryId()).orElseThrow(()->new RuntimeException("No category ID"));
         Product product = Product.builder()
                 .name(createProductDTO.name())
                 .description(createProductDTO.description())
                 .pictureUrl(createProductDTO.pictureUrl())
                 .price(createProductDTO.price())
+                .category(category)
                 .build();
         Product savedProduct = productRepository.save(product);
         return productModelMapper.mapProductEntityToProductDTO(savedProduct);
@@ -46,10 +48,10 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public ProductDTO updateProduct(Long productId, ProductDTO productDTO) {
+    public ProductDTO updateProduct(ProductDTO productDTO) {
 
-        Product product = productRepository.findById(productId)
-                .orElseThrow(() -> new RuntimeException(String.format("product with %d doesnt exist", productId)));
+        Product product = productRepository.findById(productDTO.id())
+                .orElseThrow(() -> new RuntimeException(String.format("product with %d doesnt exist", productDTO.id())));
         Category category = categoryRepository.findById(productDTO.categoryId())
                 .orElseThrow(() -> new RuntimeException(String.format("product with %d doesnt exist", productDTO.categoryId())));
 
