@@ -2,12 +2,12 @@ package com.baal.WebShop.service;
 
 import com.baal.WebShop.DTO.CreateProductDTO;
 import com.baal.WebShop.DTO.ProductDTO;
+import com.baal.WebShop.DTO.UpdateProductDTO;
 import com.baal.WebShop.mapper.ProductModelMapper;
 import com.baal.WebShop.model.Category;
 import com.baal.WebShop.model.Product;
 import com.baal.WebShop.repository.CategoryRepository;
 import com.baal.WebShop.repository.ProductRepository;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
@@ -24,7 +24,7 @@ public class ProductServiceImp implements ProductService {
 
     @Override
     public ProductDTO createProduct(CreateProductDTO createProductDTO) {
-        Category category = categoryRepository.findById(createProductDTO.categoryId()).orElseThrow(()->new RuntimeException("No category ID"));
+        Category category = categoryRepository.findById(createProductDTO.categoryId()).orElseThrow(() -> new RuntimeException("No category ID"));
         Product product = Product.builder()
                 .name(createProductDTO.name())
                 .description(createProductDTO.description())
@@ -48,7 +48,7 @@ public class ProductServiceImp implements ProductService {
     }
 
     @Override
-    public ProductDTO updateProduct(ProductDTO productDTO) {
+    public ProductDTO updateProduct(UpdateProductDTO productDTO) {
 
         Product product = productRepository.findById(productDTO.id())
                 .orElseThrow(() -> new RuntimeException(String.format("product with %d doesnt exist", productDTO.id())));
