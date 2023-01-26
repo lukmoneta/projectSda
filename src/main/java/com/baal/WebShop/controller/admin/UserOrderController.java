@@ -1,4 +1,4 @@
-package com.baal.WebShop.controller.thymeleaf;
+package com.baal.WebShop.controller.admin;
 
 import com.baal.WebShop.DTO.UserOrderDTO;
 import com.baal.WebShop.service.UserOrderService;

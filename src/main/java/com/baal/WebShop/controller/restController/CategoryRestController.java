@@ -1,4 +1,4 @@
-package com.baal.WebShop.controller;
+package com.baal.WebShop.controller.restController;
 
 import com.baal.WebShop.DTO.CategoryDTO;
 import com.baal.WebShop.DTO.CreateCategoryDTO;

@@ -1,4 +1,4 @@
-package com.baal.WebShop.controller;
+package com.baal.WebShop.controller.restController;
 
 import com.baal.WebShop.DTO.AddressDTO;
 import com.baal.WebShop.DTO.CreateAddressDTO;

@@ -1,4 +1,4 @@
-package com.baal.WebShop.controller;
+package com.baal.WebShop.controller.restController;
 
 import com.baal.WebShop.DTO.ProductDTO;
 import com.baal.WebShop.service.ProductService;
