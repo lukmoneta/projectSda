@@ -1,9 +1,7 @@
 package com.baal.WebShop.controller;
 
 import com.baal.WebShop.DTO.AddressDTO;
-import com.baal.WebShop.DTO.CategoryDTO;
 import com.baal.WebShop.DTO.CreateAddressDTO;
-import com.baal.WebShop.DTO.CreateCategoryDTO;
 import com.baal.WebShop.service.AddressService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/address")
-public class AddressController {
+public class AddressRestController {
     private final AddressService addressService;
 
     @PostMapping()

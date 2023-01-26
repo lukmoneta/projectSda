@@ -27,7 +27,7 @@ public class ProductController {
     public String productList(Model model) {
         List<ProductDTO> productList = productService.getProducts();
         model.addAttribute("products", productList);
-        return "admin/index";
+        return "admin/productList";
     }
 
     @GetMapping("delete")

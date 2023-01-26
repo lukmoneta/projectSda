@@ -1,8 +1,6 @@
 package com.baal.WebShop.controller;
 
 import com.baal.WebShop.DTO.ProductDTO;
-import com.baal.WebShop.mapper.ProductModelMapper;
-import com.baal.WebShop.repository.ProductRepository;
 import com.baal.WebShop.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -16,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/products")
-public class ProductController1 {
+public class ProductRestController {
     private final ProductService productService;
 
     @GetMapping("")
