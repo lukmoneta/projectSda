@@ -1,6 +1,7 @@
 package com.baal.WebShop.controller;
 
 import com.baal.WebShop.DTO.ProductDTO;
+import com.baal.WebShop.model.OrderLine;
 import com.baal.WebShop.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class HomeController {
 private final ProductService productService;
+private final OrderLine orderLine;
     @GetMapping("/")
     public String getHome(Model model){
 
@@ -21,7 +23,11 @@ private final ProductService productService;
 
         return "index";
     }
+@GetMapping("/cart")
+    public String getCart(Model model){
 
+        return "cart";
+}
 
 
 }
