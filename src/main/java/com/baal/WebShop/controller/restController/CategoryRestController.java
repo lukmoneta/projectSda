@@ -1,4 +1,4 @@
-package com.baal.WebShop.controller;
+package com.baal.WebShop.controller.restController;
 
 import com.baal.WebShop.DTO.CategoryDTO;
 import com.baal.WebShop.DTO.CreateCategoryDTO;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("admin/category")
-public class CategoryController {
+public class CategoryRestController {
     private final CategoryService categoryService;
 
     @PostMapping()
