@@ -26,8 +26,8 @@ public class OrderLineServiceImp implements OrderLineService{
     public OrderLineDTO createOrderLine(@Valid CreateOrderLineDTO createOrderLineDTO) {
         Product productById = productRepository.getReferenceById(createOrderLineDTO.productId());
         OrderLine orderLine = new OrderLine();
-        orderLine.setNumberOfProducts(createOrderLineDTO.numberOfProducts());
-        orderLine.setValueOfProduct(createOrderLineDTO.valueOfProduct());
+        orderLine.setNumberOfProducts(1);
+        orderLine.setValueOfProduct(productById.getPrice());
         orderLine.setProduct(productById);
         OrderLine savedOrderLine = orderLineRepository.save(orderLine);
         return orderLineModelMapper.mapOrderLineEntityToOrderLineDTO(savedOrderLine);
