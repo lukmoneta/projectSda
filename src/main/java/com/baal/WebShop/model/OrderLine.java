@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-@Builder
 @Entity
 public class OrderLine {
     @Id
