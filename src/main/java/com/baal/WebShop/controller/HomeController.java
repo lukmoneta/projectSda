@@ -29,10 +29,16 @@ public class HomeController {
     }
 
     @GetMapping("/addtocart")
-    public String getCart(@RequestParam Long productId) {
+    public String getToCart(@RequestParam Long productId) {
 
         orderLineService.createOrderLine(new CreateOrderLineDTO(productId));
         return "redirect:/";
+    }
+    @GetMapping("/cart")
+    public String getCart(Model model){
+
+
+        return "cart";
     }
 
 
