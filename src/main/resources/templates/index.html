@@ -37,7 +37,7 @@
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill" th:text="${numberOfOrderLines}"></span>
                         </button>
                     </form>
                 </div>
@@ -73,14 +73,6 @@
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <!--  <form th:action="@{/addtocart(id=${product.id()})}" method="get">
-                                <input type="hidden"th:field="*{product.id}" />
-                                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-outline-dark mt-auto">Add to cart</button>
-                                    </div>
-                                </div>
-                            </form>-->
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" th:href="@{/addtocart(productId=${product.id()})}">Add to cart</a>
                                 </div>
                             </div>

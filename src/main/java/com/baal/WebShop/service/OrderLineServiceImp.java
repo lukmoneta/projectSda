@@ -38,4 +38,12 @@ public class OrderLineServiceImp implements OrderLineService{
         List<OrderLine> list = orderLineRepository.findAll();
         return list.stream().map(orderLineModelMapper::mapOrderLineEntityToOrderLineDTO).toList();
     }
+
+    @Override
+    public long numberOfOrderLines() {
+       return orderLineRepository.findAll().size();
+
+    }
+
+
 }

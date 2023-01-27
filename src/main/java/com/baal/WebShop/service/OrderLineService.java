@@ -9,4 +9,5 @@ import java.util.List;
 public interface OrderLineService {
     OrderLineDTO createOrderLine(@Valid CreateOrderLineDTO createOrderLineDTO);
     List<OrderLineDTO> getOrderLines();
+    long numberOfOrderLines();
 }
