@@ -2,7 +2,7 @@ package com.baal.WebShop.service;
 
 import com.baal.WebShop.DTO.CreateOrderLineDTO;
 import com.baal.WebShop.DTO.OrderLineDTO;
-import com.baal.WebShop.DTO.ProductDTO;
+import com.baal.WebShop.DTO.OrderLineWithProductNameDTO;
 import com.baal.WebShop.mapper.OrderLineModelMapper;
 import com.baal.WebShop.model.OrderLine;
 import com.baal.WebShop.model.Product;
@@ -14,10 +14,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.List;
+
 @Validated
 @Service
 @RequiredArgsConstructor
-public class OrderLineServiceImp implements OrderLineService{
+public class OrderLineServiceImp implements OrderLineService {
     private final OrderLineRepository orderLineRepository;
     private final ProductRepository productRepository;
     private final OrderLineModelMapper orderLineModelMapper;
@@ -41,8 +42,19 @@ public class OrderLineServiceImp implements OrderLineService{
 
     @Override
     public long numberOfOrderLines() {
-       return orderLineRepository.findAll().size();
+        return orderLineRepository.findAll().size();
 
+    }
+
+    @Override
+    public List<OrderLineWithProductNameDTO> getOrderLinesWithProductNames() {
+        List<OrderLine> all = orderLineRepository.findAll();
+        return all.stream().map(orderLine -> {
+                    return new OrderLineWithProductNameDTO(orderLine.getProduct().getName(),
+                            orderLine.getNumberOfProducts(), orderLine.getValueOfProduct());
+                }
+
+        ).toList();
     }
 
 
