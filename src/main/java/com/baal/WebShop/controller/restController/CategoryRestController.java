@@ -2,7 +2,7 @@ package com.baal.WebShop.controller.restController;
 
 import com.baal.WebShop.DTO.CategoryDTO;
 import com.baal.WebShop.DTO.CreateCategoryDTO;
-import com.baal.WebShop.service.CategoryService;
+import com.baal.WebShop.repository.service.CategoryService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;

@@ -1,7 +1,7 @@
 package com.baal.WebShop.controller.admin;
 
 import com.baal.WebShop.DTO.ProductDTO;
-import com.baal.WebShop.service.ProductService;
+import com.baal.WebShop.repository.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
