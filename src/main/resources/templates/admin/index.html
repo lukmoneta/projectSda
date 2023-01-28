@@ -67,7 +67,7 @@
                             <div class="collapse" id="categoryLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionCat">
                                 <nav class="sb-sidenav-menu-nested nav category">
                                     <a class="nav-link" href="admin/category">Categories List</a>
-                                    <a class="nav-link" th:href="@{products/add}">Add new category</a>
+                                    <a class="nav-link" th:href="@{admin/category/add}">Add new category</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#ordersLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -77,8 +77,8 @@
                             </a>
                             <div class="collapse" id="ordersLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionCat">
                                 <nav class="sb-sidenav-menu-nested nav category">
-                                    <a class="nav-link" href="layout-static.html">Orders List</a>
-                                    <a class="nav-link" th:href="@{products/add}">Add new order?</a>
+                                    <a class="nav-link" href="admin/order">Orders List</a>
+                                    <a class="nav-link" href="@{!!!!!!!!!!!!!!}">Add new order?</a>
                                 </nav>
                             </div>
                         </div>
@@ -131,9 +131,6 @@
                                         <td th:text="${product.pictureUrl()}"></td>
                                         <td th:text="${product.price()}"></td>
                                         <td th:text="${product.categoryId()}"></td>
-
-                                        <td class="col-1"><a th:href="@{products/delete(id=${product.id})}" class="btn btn-danger">DELETE</a></td>
-                                        <td><a th:href="@{products/edit(id=${product.id})}"class="btn btn-primary">EDIT</a></td>
 
                                     </tr>
                                     </tbody>

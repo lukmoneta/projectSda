@@ -77,7 +77,7 @@
             <tbody>
             <tr th:each="product:${orderLines}">
                 <td th:text="${product.productName()}"></td>
-                <td th:text="${product.quantity()}"></td>
+                <td inputmode="text" th:text="${product.quantity()}"></td>
                 <td th:text="${product.value()}"></td>
 
 
