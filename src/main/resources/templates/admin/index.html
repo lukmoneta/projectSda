@@ -78,7 +78,7 @@
                             <div class="collapse" id="ordersLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionCat">
                                 <nav class="sb-sidenav-menu-nested nav category">
                                     <a class="nav-link" href="layout-static.html">Orders List</a>
-                                    <a class="nav-link" th:href="@{products/add}">Add new order?</a>
+                                    <a class="nav-link" th:href="@{!!!!!!!!!!!!!!}">Add new order?</a>
                                 </nav>
                             </div>
                         </div>
@@ -131,9 +131,6 @@
                                         <td th:text="${product.pictureUrl()}"></td>
                                         <td th:text="${product.price()}"></td>
                                         <td th:text="${product.categoryId()}"></td>
-
-                                        <td class="col-1"><a th:href="@{products/delete(id=${product.id})}" class="btn btn-danger">DELETE</a></td>
-                                        <td><a th:href="@{products/edit(id=${product.id})}"class="btn btn-primary">EDIT</a></td>
 
                                     </tr>
                                     </tbody>
