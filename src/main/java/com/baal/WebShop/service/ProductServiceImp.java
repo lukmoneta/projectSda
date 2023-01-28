@@ -69,4 +69,10 @@ public class ProductServiceImp implements ProductService {
         List<Product> list = productRepository.findAll();
         return list.stream().map(productModelMapper::mapProductEntityToProductDTO).toList();
     }
+
+    @Override
+    public Product getProductByName(String name) {
+
+        return productRepository.findByNameIsIgnoreCase(name);
+    }
 }
