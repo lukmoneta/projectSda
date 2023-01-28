@@ -55,8 +55,8 @@
           </a>
           <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
             <nav class="sb-sidenav-menu-nested nav">
-              <a class="nav-link" th:href="@{products}">Product List</a>
-              <a class="nav-link" th:href="@{products/add}">Add new product</a>
+              <a class="nav-link" th:href="@{/admin/products}">Product List</a>
+              <a class="nav-link" th:href="@{/admin/products/add}">Add new product</a>
             </nav>
           </div>
           <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#categoryLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -66,7 +66,7 @@
           </a>
           <div class="collapse" id="categoryLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionCat">
             <nav class="sb-sidenav-menu-nested nav category">
-              <a class="nav-link" th:href="@{category}">Categories List</a>
+              <a class="nav-link" th:href="@{/admin/category}">Categories List</a>
               <a class="nav-link" th:href="@{category/add}">Add new category</a>
             </nav>
           </div>
@@ -77,8 +77,8 @@
           </a>
           <div class="collapse" id="ordersLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionCat">
             <nav class="sb-sidenav-menu-nested nav category">
-              <a class="nav-link" th:href="@{order}">Orders List</a>
-              <!--<a class="nav-link" th:href="@{products/add}">Add new order?</a>-->
+              <a class="nav-link" th:href="@{/admin/order}">Orders List</a>
+              <!--<a class="nav-link" href="@{!!!!!!!!!!!!!!}">Add new order?</a>-->
             </nav>
           </div>
         </div>
@@ -100,44 +100,21 @@
         <div class="card mb-4">
           <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            Product List
+            Add category
           </div>
           <div class="card-body">
-            <table id="datatablesSimple">
-              <thead>
-              <tr>
-                <th>#</th>
-                <th>Name</th>
-                <th>PictureURL</th>
-                <th>Price</th>
-                <th>Category</th>
-              </tr>
-              </thead>
-              <tfoot>
-              <tr>
+            <h1>Add new category</h1>
+            <form action="#" th:action="@{/admin/category/add}" th:object="${createCategory}" method="post">
 
-                <th>#</th>
-                <th>Name</th>
-                <th>PictureURL</th>
-                <th>Price</th>
-                <th>Category</th>
+              <div class="form-group">
+                <label for="name" class="form-label">Product name</label>
+                <input class="form-control" type="text" placeholder="Enter name" aria-label="default input example"
+                       name="productName" id="name" th:field="*{name}">
+              </div>
 
-              </tr>
-              </tfoot>
-              <tbody>
-              <tr th:each="product:${products}">
-                <td th:text="${product.id()}"></td>
-                <td th:text="${product.name()}"></td>
-                <td th:text="${product.pictureUrl()}"></td>
-                <td th:text="${product.price()}"></td>
-                <td th:text="${product.categoryId()}"></td>
+              <button type="submit" class="btn btn-primary">Submit</button>
 
-                <td class="col-1"><a th:href="@{products/delete(id=${product.id})}" class="btn btn-danger">DELETE</a></td>
-                <td><a th:href="@{products/edit(id=${product.id})}"class="btn btn-primary">EDIT</a></td>
-
-              </tr>
-              </tbody>
-            </table>
+            </form>
           </div>
         </div>
       </div>

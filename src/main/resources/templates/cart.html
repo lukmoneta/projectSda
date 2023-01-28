@@ -67,11 +67,15 @@
             <tbody>
             <tr th:each="product:${orderLines}">
                 <td th:text="${product.productName()}"></td>
+
                 <td>
                     <button class="btn btn-outline-secondary" type="button" id="minus-quantity" onclick="minusQuantity(this)">-</button>
                     <span id="product-quantity" th:text="${product.quantity()}"></span>
                     <button class="btn btn-outline-secondary" type="button" id="add-quantity" onclick="addQuantity(this)">+</button>
                 </td>
+
+            
+
                 <td th:text="${product.value()}"></td>
                 <td><span id="total-value"></span></td>
                 <!-- Product actions-->
