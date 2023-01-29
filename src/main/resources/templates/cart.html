@@ -67,30 +67,29 @@
             </thead>
             <tbody>
             <tr th:each="product:${orderLines}">
-                <form action="#" th:action="@{/addQuantity}" th:object="${updateDTO}" method="post">
+
                 <td th:text="${product.productName()}" ></td>
 
-                        <span th:hidden="true" th:field="*{id()}" th:text="${product.id()}"></span>
-
                     <td>
-                    <button class="btn btn-outline-secondary" type="button" id="minus-quantity" onclick="minusQuantity(this)">-</button>
-                    <span id="product-quantity" th:text="${product.quantity()}" th:field="*{quantity()}" th:value="${product.quantity()}"></span>
-                    <button class="btn btn-outline-secondary" type="button" id="add-quantity" onclick="addQuantity(this)">+</button>
+                        <input type="number" step="1" max="10" th:value="${product.quantity()}" name="quantity" class="quantity-field border-0 text-center w-25" id="quantity">
+                    <!--<button class="btn btn-outline-secondary" type="button" id="minus-quantity" onclick="minusQuantity(this)">-</button>-->
+                   <!-- <span type="number" id="product-quantity" "></span>-->
+                    <!--<button class="btn btn-outline-secondary" type="button" id="add-quantity" onclick="addQuantity(this)">+</button>-->
                 </td>
 
             
 
-                <td th:text="${product.productPrice()}" th:field="*{productPrice()}" th:value="${product.productPrice()}"></td>
+                <td th:text="${product.productPrice()}"></td>
                 <!--<td><span id="total-value" th:text="${product.value()}"></span></td>-->
                 <!-- Product actions-->
-                    <td th:text="${product.value()}" th:field="*{value()}" th:value="${product.value()}"></td>
+                    <td th:text="${product.value()}"></td>
                 <td>
 
-                        <button type="submit" class="btn btn-outline-dark mt-auto">Recalculate cart</button>
+                        <a class="btn btn-outline-primary mt-auto"
+                            th:href="@{/addQuantity(id=${product.id()},quantity=${product.quantity()})}">Recalculate</a>
                         <a class="btn btn-outline-danger mt-auto"
                            th:href="@{/delete(id=${product.id()})}">Delete from cart</a>
                 </td>
-                </form>
             </tr>
             </tbody>
         </table>

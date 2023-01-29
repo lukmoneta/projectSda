@@ -44,7 +44,7 @@ public class HomeController {
     public String getCart(Model model) {
         long numberOfOrderLines = orderLineService.numberOfOrderLines();
         List<OrderLineWithProductNameDTO> orderLinesWithProductNames = orderLineService.getOrderLinesWithProductNames();
-        model.addAttribute("updateDTO",new GivenUpdateOrdeLineDTO(null,null,null,null));
+
         model.addAttribute("numberOfOrderLines", numberOfOrderLines);
         model.addAttribute("orderLines", orderLinesWithProductNames);
         return "cart";
@@ -57,9 +57,9 @@ public class HomeController {
         return "redirect:/cart";
     }
 
-    @PostMapping("/addQuantity")
-    public String updateQuantity(@ModelAttribute UpdateOrderlineDTO updateOrderlineDTO) {
-        orderLineService.updateOrderQuantity(updateOrderlineDTO);
+    @GetMapping("/addQuantity")
+    public String updateQuantity(@RequestParam Long id, @RequestParam Integer quantity) {
+        orderLineService.updateOrderQuantity(id,quantity);
         return "redirect:/cart";
     }
     @GetMapping("/delete")
