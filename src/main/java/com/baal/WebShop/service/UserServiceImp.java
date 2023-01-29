@@ -1,4 +1,4 @@
-package com.baal.WebShop.repository.service;
+package com.baal.WebShop.service;
 
 import com.baal.WebShop.DTO.CreateUserDTO;
 import com.baal.WebShop.DTO.UserDTO;

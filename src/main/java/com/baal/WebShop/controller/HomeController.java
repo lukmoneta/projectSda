@@ -7,8 +7,6 @@ import com.baal.WebShop.DTO.ProductDTO;
 import com.baal.WebShop.DTO.UpdateOrderlineDTO;
 import com.baal.WebShop.service.OrderLineService;
 import com.baal.WebShop.service.ProductService;
-import com.baal.WebShop.repository.service.OrderLineService;
-import com.baal.WebShop.repository.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,6 +60,11 @@ public class HomeController {
     @PostMapping("/addQuantity")
     public String updateQuantity(@ModelAttribute UpdateOrderlineDTO updateOrderlineDTO) {
         orderLineService.updateOrderQuantity(updateOrderlineDTO);
+        return "redirect:/cart";
+    }
+    @GetMapping("/delete")
+    public String deleteOrderLine(@RequestParam Long id){
+        orderLineService.deleteOrderLine(id);
         return "redirect:/cart";
     }
 

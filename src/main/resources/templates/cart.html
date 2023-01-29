@@ -87,8 +87,8 @@
                 <td>
 
                         <button type="submit" class="btn btn-outline-dark mt-auto">Recalculate cart</button>
-                        <!--<a class="btn btn-outline-danger mt-auto"
-                           th:href="@{/removefromcart(productId=${product.id()})}">Delete from cart</a>-->
+                        <a class="btn btn-outline-danger mt-auto"
+                           th:href="@{/delete(id=${product.id()})}">Delete from cart</a>
                 </td>
                 </form>
             </tr>

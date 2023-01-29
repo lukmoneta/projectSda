@@ -2,7 +2,7 @@ package com.baal.WebShop.controller.admin;
 
 import com.baal.WebShop.DTO.CategoryDTO;
 import com.baal.WebShop.DTO.CreateCategoryDTO;
-import com.baal.WebShop.repository.service.CategoryService;
+import com.baal.WebShop.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
