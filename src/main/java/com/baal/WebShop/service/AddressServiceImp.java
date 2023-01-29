@@ -1,4 +1,4 @@
-package com.baal.WebShop.repository.service;
+package com.baal.WebShop.service;
 
 import com.baal.WebShop.DTO.AddressDTO;
 import com.baal.WebShop.DTO.CreateAddressDTO;

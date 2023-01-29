@@ -1,4 +1,4 @@
-package com.baal.WebShop.repository.service;
+package com.baal.WebShop.service;
 
 import com.baal.WebShop.DTO.CreateOrderLineDTO;
 import com.baal.WebShop.DTO.OrderLineDTO;
@@ -18,4 +18,5 @@ public interface OrderLineService {
 
     void updateOrderLine(List<OrderLineWithProductNameDTO> orderLineWithProductNameDTOList);
     void updateOrderQuantity(UpdateOrderlineDTO updateOrderlineDTO);
+    void deleteOrderLine(Long id);
 }

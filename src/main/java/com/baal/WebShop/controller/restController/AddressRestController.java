@@ -2,7 +2,7 @@ package com.baal.WebShop.controller.restController;
 
 import com.baal.WebShop.DTO.AddressDTO;
 import com.baal.WebShop.DTO.CreateAddressDTO;
-import com.baal.WebShop.repository.service.AddressService;
+import com.baal.WebShop.service.AddressService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package com.baal.WebShop.repository.service;
+package com.baal.WebShop.service;
 
 import com.baal.WebShop.DTO.CreateOrderLineDTO;
 import com.baal.WebShop.DTO.OrderLineDTO;
@@ -83,6 +83,11 @@ public class OrderLineServiceImp implements OrderLineService {
         orderLine.setNumberOfProducts(updateOrderlineDTO.quantity());
         orderLine.setValueOfProduct(value);
 
+    }
+
+    @Override
+    public void deleteOrderLine(Long id) {
+        orderLineRepository.deleteById(id);
     }
 
 }
