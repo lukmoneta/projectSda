@@ -2,5 +2,5 @@ package com.baal.WebShop.DTO;
 
 import java.math.BigDecimal;
 
-public record OrderLineWithProductNameDTO(String productName, int quantity, BigDecimal value) {
+public record OrderLineWithProductNameDTO(Long id,String productName, BigDecimal productPrice,int quantity, BigDecimal value) {
 }
