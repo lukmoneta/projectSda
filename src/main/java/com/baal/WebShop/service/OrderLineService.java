@@ -17,6 +17,6 @@ public interface OrderLineService {
    // void updateOrderLine(OrderLineWithProductNameDTO orderLineWithProductNameDTO);
 
     void updateOrderLine(List<OrderLineWithProductNameDTO> orderLineWithProductNameDTOList);
-    void updateOrderQuantity(UpdateOrderlineDTO updateOrderlineDTO);
+    void updateOrderQuantity(Long id, Integer quantity);
     void deleteOrderLine(Long id);
 }

@@ -76,11 +76,11 @@ public class OrderLineServiceImp implements OrderLineService {
 
     @Override
     @Transactional
-    public void updateOrderQuantity(UpdateOrderlineDTO updateOrderlineDTO) {
+    public void updateOrderQuantity(Long id, Integer quantity) {
 
-        OrderLine orderLine = orderLineRepository.findById(updateOrderlineDTO.id()).orElseThrow();
-        BigDecimal value = (BigDecimal.valueOf(updateOrderlineDTO.quantity()).multiply(orderLine.getProduct().getPrice()));
-        orderLine.setNumberOfProducts(updateOrderlineDTO.quantity());
+        OrderLine orderLine = orderLineRepository.findById(id).orElseThrow();
+        BigDecimal value = (BigDecimal.valueOf(quantity).multiply(orderLine.getProduct().getPrice()));
+        orderLine.setNumberOfProducts(quantity);
         orderLine.setValueOfProduct(value);
 
     }
