@@ -2,16 +2,11 @@ package com.baal.WebShop.controller.admin;
 
 import com.baal.WebShop.DTO.CategoryDTO;
 import com.baal.WebShop.DTO.CreateCategoryDTO;
-import com.baal.WebShop.DTO.CreateProductDTO;
-import com.baal.WebShop.DTO.ProductDTO;
-import com.baal.WebShop.service.CategoryService;
+import com.baal.WebShop.repository.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,6 +34,13 @@ public class CategoryController {
         categoryService.createCategory(createCategoryDTO);
         return "redirect:/admin/category";
     }
+
+    @GetMapping("/delete")
+    public String deleteCategoryById(@RequestParam Long id){
+        categoryService.deleteById(id);
+        return "redirect:/admin/category";
+    }
+
 
 
 }

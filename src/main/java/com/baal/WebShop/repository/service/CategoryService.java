@@ -1,4 +1,4 @@
-package com.baal.WebShop.service;
+package com.baal.WebShop.repository.service;
 
 import com.baal.WebShop.DTO.CategoryDTO;
 import com.baal.WebShop.DTO.CreateCategoryDTO;

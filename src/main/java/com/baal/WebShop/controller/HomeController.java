@@ -1,11 +1,10 @@
 package com.baal.WebShop.controller;
 
 import com.baal.WebShop.DTO.CreateOrderLineDTO;
-import com.baal.WebShop.DTO.OrderLineDTO;
 import com.baal.WebShop.DTO.OrderLineWithProductNameDTO;
 import com.baal.WebShop.DTO.ProductDTO;
-import com.baal.WebShop.service.OrderLineService;
-import com.baal.WebShop.service.ProductService;
+import com.baal.WebShop.repository.service.OrderLineService;
+import com.baal.WebShop.repository.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
